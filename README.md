@@ -1,4 +1,4 @@
-# AI Customer Support
+# AI Customer Support Chat
 
 This project is an AI-powered customer support application built with Next.js and OpenAI.
 
