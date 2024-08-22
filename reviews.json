@@ -1,0 +1,457 @@
+[
+    {
+      "name": "Sophia Patel",
+      "department": "Mathematics",
+      "Overall Rating": 3.8,
+      "Courses": [
+        "Calculus I",
+        "Linear Algebra",
+        "Discrete Mathematics"
+      ],
+      "Ratings": [
+        {
+          "course": "Calculus I",
+          "rating": 3,
+          "message": "The course was challenging but rewarding. The professor's explanations were thorough, but the pace of the class was fast, which made it difficult to keep up with the material at times."
+        },
+        {
+          "course": "Linear Algebra",
+          "rating": 4,
+          "message": "Sophia Patel has a deep understanding of the subject and presents the material in a clear and engaging manner. Her use of real-world examples helped to solidify complex concepts."
+        },
+        {
+          "course": "Discrete Mathematics",
+          "rating": 3,
+          "message": "The course covered a lot of ground and included many interesting topics. However, the difficulty level was quite high, and some of the concepts were not explained in enough detail."
+        }
+      ]
+    },
+    {
+      "name": "James Robinson",
+      "department": "Physics",
+      "Overall Rating": 4.5,
+      "Courses": [
+        "Quantum Mechanics",
+        "Classical Mechanics",
+        "Electromagnetism"
+      ],
+      "Ratings": [
+        {
+          "course": "Quantum Mechanics",
+          "rating": 5,
+          "message": "James Robinson is an exceptional instructor for Quantum Mechanics. His lectures are incredibly clear and he has a talent for making complex concepts understandable. The supplementary materials provided were also very helpful."
+        },
+        {
+          "course": "Classical Mechanics",
+          "rating": 4,
+          "message": "Classical Mechanics was taught effectively with practical examples that enhanced understanding. The professor's passion for the subject was evident, although the course could benefit from more interactive problem-solving sessions."
+        }
+      ]
+    },
+    {
+      "name": "Emily Nguyen",
+      "department": "Biology",
+      "Overall Rating": 4.2,
+      "Courses": [
+        "Genetics",
+        "Molecular Biology",
+        "Ecology"
+      ],
+      "Ratings": [
+        {
+          "course": "Genetics",
+          "rating": 4,
+          "message": "Emily Nguyen delivered the Genetics course with great enthusiasm and depth. The course was well-organized, and the professor provided ample resources and support to ensure students could grasp the challenging concepts."
+        },
+        {
+          "course": "Molecular Biology",
+          "rating": 4,
+          "message": "The Molecular Biology course was demanding but highly informative. Professor Nguyen’s expertise was evident, and her feedback on assignments was detailed and constructive."
+        },
+        {
+          "course": "Ecology",
+          "rating": 4,
+          "message": "Ecology was taught in an engaging manner with interactive elements that made the subject matter more accessible. The professor’s approach fostered a strong interest in the subject."
+        }
+      ]
+    },
+    {
+      "name": "David Chen",
+      "department": "Chemistry",
+      "Overall Rating": 3.9,
+      "Courses": [
+        "Organic Chemistry",
+        "Inorganic Chemistry",
+        "Physical Chemistry"
+      ],
+      "Ratings": [
+        {
+          "course": "Organic Chemistry",
+          "rating": 3,
+          "message": "Organic Chemistry was a rigorous course that required a lot of self-study. Professor Chen provided useful resources, but the course could be overwhelming at times due to its fast pace and the complexity of the material."
+        },
+        {
+          "course": "Inorganic Chemistry",
+          "rating": 4,
+          "message": "Inorganic Chemistry was taught effectively with a good balance between theory and practical applications. Professor Chen’s teaching style was engaging and he was always available for extra help outside of class."
+        },
+        {
+          "course": "Physical Chemistry",
+          "rating": 4,
+          "message": "The Physical Chemistry course was challenging but very rewarding. The professor’s deep knowledge of the subject and ability to explain difficult concepts clearly made the learning experience much better."
+        }
+      ]
+    },
+    {
+      "name": "Ava Thompson",
+      "department": "English",
+      "Overall Rating": 4.0,
+      "Courses": [
+        "Literature",
+        "Creative Writing",
+        "American Poetry"
+      ],
+      "Ratings": [
+        {
+          "course": "Literature",
+          "rating": 4,
+          "message": "Professor Thompson’s Literature course was intellectually stimulating. Her deep insights and ability to analyze texts from various perspectives greatly enriched the learning experience."
+        },
+        {
+          "course": "Creative Writing",
+          "rating": 4,
+          "message": "The Creative Writing course was both inspiring and challenging. Professor Thompson provided valuable feedback on writing assignments and fostered a supportive workshop environment."
+        },
+        {
+          "course": "American Poetry",
+          "rating": 3,
+          "message": "American Poetry was a thought-provoking course with a lot of interesting content. However, some of the lectures felt too dense, and additional time for discussion could have enhanced understanding."
+        }
+      ]
+    },
+    {
+      "name": "Michael Johnson",
+      "department": "Engineering",
+      "Overall Rating": 4.3,
+      "Courses": [
+        "Thermodynamics",
+        "Fluid Mechanics",
+        "Statics"
+      ],
+      "Ratings": [
+        {
+          "course": "Thermodynamics",
+          "rating": 4,
+          "message": "Michael Johnson’s Thermodynamics course was well-structured with clear explanations of complex concepts. The professor’s use of real-world applications helped bridge theory and practice."
+        },
+        {
+          "course": "Fluid Mechanics",
+          "rating": 4,
+          "message": "Fluid Mechanics was a challenging course, but Professor Johnson’s thorough teaching and supportive attitude made it manageable. The problem sets were particularly useful for reinforcing the material."
+        },
+        {
+          "course": "Statics",
+          "rating": 4,
+          "message": "The Statics course was delivered with a focus on problem-solving and application. Professor Johnson was accessible for questions and provided additional resources to help with difficult topics."
+        }
+      ]
+    },
+    {
+      "name": "Olivia Smith",
+      "department": "History",
+      "Overall Rating": 4.4,
+      "Courses": [
+        "World History",
+        "Ancient Civilizations",
+        "Modern Europe"
+      ],
+      "Ratings": [
+        {
+          "course": "World History",
+          "rating": 4,
+          "message": "Olivia Smith’s World History course was engaging and well-organized. The professor’s storytelling and historical context provided a deep understanding of global events."
+        },
+        {
+          "course": "Ancient Civilizations",
+          "rating": 4,
+          "message": "The Ancient Civilizations course was fascinating and rich in detail. Professor Smith’s passion for the subject and ability to bring ancient history to life made the classes very enjoyable."
+        },
+        {
+          "course": "Modern Europe",
+          "rating": 4,
+          "message": "Modern Europe was an insightful course that covered recent historical developments thoroughly. Professor Smith’s lectures were comprehensive and thought-provoking."
+        }
+      ]
+    },
+    {
+      "name": "Liam Brown",
+      "department": "Philosophy",
+      "Overall Rating": 4.1,
+      "Courses": [
+        "Ethics",
+        "Metaphysics",
+        "Political Philosophy"
+      ],
+      "Ratings": [
+        {
+          "course": "Ethics",
+          "rating": 4,
+          "message": "Liam Brown’s Ethics course was highly stimulating. The professor’s ability to encourage critical thinking and ethical debate was impressive, and the course materials were well-curated."
+        },
+        {
+          "course": "Metaphysics",
+          "rating": 4,
+          "message": "Metaphysics was presented in a thought-provoking manner. Professor Brown’s deep philosophical knowledge and engaging lectures made complex concepts more accessible."
+        },
+        {
+          "course": "Political Philosophy",
+          "rating": 4,
+          "message": "Political Philosophy was both challenging and enlightening. The professor’s detailed analysis of political theories and their real-world implications was highly valuable."
+        }
+      ]
+    },
+    {
+      "name": "Isabella Martinez",
+      "department": "Computer Science",
+      "Overall Rating": 4.0,
+      "Courses": [
+        "Algorithms",
+        "Data Structures",
+        "Software Engineering"
+      ],
+      "Ratings": [
+        {
+          "course": "Algorithms",
+          "rating": 4,
+          "message": "Isabella Martinez’s Algorithms course was well-organized and included practical assignments that reinforced theoretical concepts. Her feedback was always constructive and detailed."
+        },
+        {
+          "course": "Data Structures",
+          "rating": 4,
+          "message": "The Data Structures course was challenging but rewarding. Professor Martinez’s explanations were clear, and the use of real-world examples helped in understanding complex data structures."
+        },
+        {
+          "course": "Software Engineering",
+          "rating": 4,
+          "message": "Software Engineering was taught with a focus on practical skills and project-based learning. Professor Martinez’s approach made it easy to grasp the essential aspects of software development."
+        }
+      ]
+    },
+    {
+      "name": "Noah Wilson",
+      "department": "Economics",
+      "Overall Rating": 4.2,
+      "Courses": [
+        "Microeconomics",
+        "Macroeconomics",
+        "Economic Theory"
+      ],
+      "Ratings": [
+        {
+          "course": "Microeconomics",
+          "rating": 4,
+          "message": "Noah Wilson’s Microeconomics course was highly informative with a strong emphasis on real-world applications. The professor’s ability to relate theory to current economic issues was particularly valuable."
+        },
+        {
+          "course": "Macroeconomics",
+          "rating": 4,
+          "message": "Macroeconomics was taught with clarity and depth. Professor Wilson’s lectures were well-structured, and the course materials were comprehensive, which helped in understanding complex economic models."
+        },
+        {
+          "course": "Economic Theory",
+          "rating": 4,
+          "message": "Economic Theory was presented in an engaging manner. Professor Wilson’s insights into theoretical frameworks and their implications for policy were both challenging and enlightening."
+        }
+      ]
+    },
+    {
+      "name": "Mia Garcia",
+      "department": "Sociology",
+      "Overall Rating": 4.3,
+      "Courses": [
+        "Introduction to Sociology",
+        "Social Research Methods",
+        "Cultural Sociology"
+      ],
+      "Ratings": [
+        {
+          "course": "Introduction to Sociology",
+          "rating": 4,
+          "message": "Mia Garcia’s Introduction to Sociology course was engaging and provided a solid foundation in sociological concepts. The professor’s discussions on social issues were thought-provoking and insightful."
+        },
+        {
+          "course": "Social Research Methods",
+          "rating": 4,
+          "message": "Social Research Methods was taught with a strong focus on practical research skills. Professor Garcia’s guidance on designing and conducting research was invaluable for students."
+        },
+        {
+          "course": "Cultural Sociology",
+          "rating": 4,
+          "message": "Cultural Sociology was both informative and stimulating. Professor Garcia’s lectures explored diverse cultural phenomena and encouraged critical analysis of social patterns."
+        }
+      ]
+    },
+    {
+      "name": "Ethan Clark",
+      "department": "Art History",
+      "Overall Rating": 4.1,
+      "Courses": [
+        "Renaissance Art",
+        "Modern Art",
+        "Art Theory"
+      ],
+      "Ratings": [
+        {
+          "course": "Renaissance Art",
+          "rating": 4,
+          "message": "Ethan Clark’s Renaissance Art course was rich in detail and provided a deep understanding of the period. The professor’s ability to contextualize artworks within historical events was impressive."
+        },
+        {
+          "course": "Modern Art",
+          "rating": 4,
+          "message": "Modern Art was presented with a focus on key movements and influential artists. Professor Clark’s lectures were engaging and the course included a variety of multimedia resources."
+        },
+        {
+          "course": "Art Theory",
+          "rating": 4,
+          "message": "Art Theory was both challenging and enriching. Professor Clark’s expertise in the subject matter and ability to foster stimulating discussions made the course highly valuable."
+        }
+      ]
+    },
+    {
+      "name": "Charlotte Lewis",
+      "department": "Statistics",
+      "Overall Rating": 4.2,
+      "Courses": [
+        "Probability Theory",
+        "Inferential Statistics",
+        "Applied Statistics"
+      ],
+      "Ratings": [
+        {
+          "course": "Probability Theory",
+          "rating": 4,
+          "message": "Charlotte Lewis’s Probability Theory course was well-structured and included numerous practical examples. The professor’s clear explanations and helpful problem sets made the course manageable."
+        },
+        {
+          "course": "Inferential Statistics",
+          "rating": 4,
+          "message": "Inferential Statistics was taught with a focus on practical application of statistical methods. Professor Lewis provided detailed feedback on assignments and was supportive throughout the course."
+        },
+        {
+          "course": "Applied Statistics",
+          "rating": 4,
+          "message": "Applied Statistics was both challenging and rewarding. Professor Lewis’s expertise in the field was evident, and the course included hands-on projects that enhanced understanding of statistical techniques."
+        }
+      ]
+    },
+    {
+      "name": "Benjamin Walker",
+      "department": "Linguistics",
+      "Overall Rating": 4.0,
+      "Courses": [
+        "Phonetics",
+        "Syntax",
+        "Sociolinguistics"
+      ],
+      "Ratings": [
+        {
+          "course": "Phonetics",
+          "rating": 4,
+          "message": "Benjamin Walker’s Phonetics course was highly informative and engaging. The professor’s use of practical exercises and demonstrations helped students grasp the nuances of phonetic analysis."
+        },
+        {
+          "course": "Syntax",
+          "rating": 4,
+          "message": "Syntax was taught with a strong emphasis on theoretical concepts and practical applications. Professor Walker’s lectures were well-organized and his feedback on assignments was thorough."
+        },
+        {
+          "course": "Sociolinguistics",
+          "rating": 4,
+          "message": "Sociolinguistics was an eye-opening course that explored the relationship between language and society. Professor Walker’s ability to present complex sociolinguistic concepts in an accessible manner was impressive."
+        }
+      ]
+    },
+    {
+      "name": "Aiden Scott",
+      "department": "Political Science",
+      "Overall Rating": 4.3,
+      "Courses": [
+        "International Relations",
+        "Political Theory",
+        "Comparative Politics"
+      ],
+      "Ratings": [
+        {
+          "course": "International Relations",
+          "rating": 4,
+          "message": "Aiden Scott’s International Relations course provided a comprehensive overview of global politics. The professor’s analysis of international conflicts and diplomatic strategies was highly insightful."
+        },
+        {
+          "course": "Political Theory",
+          "rating": 4,
+          "message": "Political Theory was presented with a focus on key philosophical texts and theories. Professor Scott’s lectures encouraged deep reflection on political ideologies and their implications."
+        },
+        {
+          "course": "Comparative Politics",
+          "rating": 4,
+          "message": "Comparative Politics was taught with a comparative approach to studying political systems. Professor Scott’s detailed case studies and discussions facilitated a better understanding of global political dynamics."
+        }
+      ]
+    },
+    {
+      "name": "Harper Adams",
+      "department": "Geology",
+      "Overall Rating": 4.4,
+      "Courses": [
+        "Physical Geology",
+        "Mineralogy",
+        "Structural Geology"
+      ],
+      "Ratings": [
+        {
+          "course": "Physical Geology",
+          "rating": 4,
+          "message": "Harper Adams’s Physical Geology course was highly engaging with a strong emphasis on fieldwork. The professor’s practical demonstrations and field trips greatly enhanced the learning experience."
+        },
+        {
+          "course": "Mineralogy",
+          "rating": 4,
+          "message": "Mineralogy was taught with a focus on the identification and classification of minerals. Professor Adams’s detailed explanations and hands-on lab work made the subject matter more accessible."
+        },
+        {
+          "course": "Structural Geology",
+          "rating": 4,
+          "message": "Structural Geology was presented with a clear focus on geological formations and processes. Professor Adams’s ability to integrate theory with practical applications made the course both challenging and rewarding."
+        }
+      ]
+    },
+    {
+      "name": "Ella King",
+      "department": "Education",
+      "Overall Rating": 4.1,
+      "Courses": [
+        "Educational Psychology",
+        "Curriculum Development",
+        "Teaching Methods"
+      ],
+      "Ratings": [
+        {
+          "course": "Educational Psychology",
+          "rating": 4,
+          "message": "Ella King’s Educational Psychology course was informative and provided valuable insights into student learning and behavior. The professor’s practical examples and case studies were particularly helpful."
+        },
+        {
+          "course": "Curriculum Development",
+          "rating": 4,
+          "message": "Curriculum Development was taught with a focus on creating effective educational programs. Professor King’s guidance on developing curricula and her feedback on assignments were invaluable."
+        },
+        {
+          "course": "Teaching Methods",
+          "rating": 4,
+          "message": "Teaching Methods was a practical course that covered various instructional strategies. Professor King’s approach to integrating theory with practice made the course highly relevant for future educators."
+        }
+      ]
+    }
+  ]
+  
