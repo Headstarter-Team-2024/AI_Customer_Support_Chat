@@ -146,8 +146,8 @@ export default function Home() {
             backgroundColor: "#0056b3",
           }
         }}
-    //     onClick={sendMessage} >Send</Button>
-    //   </Box>
-    // </Box>
+        onClick={sendMessage} >Send</Button>
+      </Box>
+    </Box>
   );
 }
