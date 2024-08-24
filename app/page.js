@@ -46,15 +46,11 @@ export default function Home() {
             //if user has prompted we want all messages besides the last. If  not then just provide the only existing message (the intro bot message)
             let othermessages = messages.slice(0, messages.length - 1)
             
+            //this is only coming after user messages
             return [
               ...othermessages,
               //if last user message is not null (meaning user has actualy prompted)
-              lastMessage.role === "user" ?(
-                lastMessage
-              )  : 
-              {...lastMessage,
-                role: "assistant", content: newMessageStream
-              }
+             {...lastMessage, content: lastMessage.content + newMessageStream}
             ]
           })
           return reader.read().then(processText)
