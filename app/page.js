@@ -22,7 +22,7 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify([...messages,{ role: "user", content: message }]),
+        body: JSON.stringify([...messages,{ role: "user", content: input }]),
       }).then(async (res)=>{
         //create a readable stream
         const reader =res.body.getReader();
@@ -30,27 +30,38 @@ export default function Home() {
         const decoder = new TextDecoder()
         let result = "";
         //recursive function that reads the stream
+        let initialBotMessage = messages[0]
+        let userMessage = {role: "user", content: input}
         return reader.read().then(function processText({done, value}){
           if(done){
             //ending conditon to return final string
             return result
           }
           //decode the value but have condition in case value is null or undefined (data gaps)
-          const newMessageStream =decoder.decode(value || new Uint8Array, {stream: true})
+          const text_stream =decoder.decode(value || new Uint8Array, {stream: true})
         
           setMessages((messages)=>{
-            let lastMessage =  messages[messages.length - 1]
-            // let lastUserMessage =lastMessage.role === "user" ? lastMessage : null
-            // let lastPromptedBotMessage = lastMessage.role === "assistant"  && messages.length>1 ? lastMessage : null
-            console.log('last message:', lastMessage)
-            //if user has prompted we want all messages besides the last. If  not then just provide the only existing message (the intro bot message)
+            //this gives the current bot stream. If the response has not been set yet, it will be null
+            let currentBotStream =  messages[messages.length - 1].role === "assistant" ? messages[messages.length - 1] : null
+           
             let othermessages = messages.slice(0, messages.length - 1)
             
+            //if on the bot stream then display the message and then append to it
+            let messageStream = currentBotStream?{
+              ...currentBotStream, 
+              role:'assistant', content: currentBotStream.content + text_stream
+            
+            }:{
+              //if not on bot stream then create a new bot stream
+              role: 'assistant',content: text_stream
+            }
             //this is only coming after user messages
             return [
-              ...othermessages,
-              //if last user message is not null (meaning user has actualy prompted)
-             {...lastMessage, content: lastMessage.content + newMessageStream}
+              initialBotMessage,
+              userMessage,
+              messageStream
+              
+             
             ]
           })
           return reader.read().then(processText)
