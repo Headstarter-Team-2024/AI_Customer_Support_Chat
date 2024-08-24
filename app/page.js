@@ -9,19 +9,24 @@ export default function Home() {
   const [messages, setMessages] = useState([{
     role: "assistant", content: "Hi I am Rate My Professor Assistant Bot. I am here to help you with any questions you have about Rate My Professor. Ask me anything!" ,
   }]);
-  const [input, setInput] = useState(""); // Add this line to define the input state
+  // const [input, setInput] = useState(""); // Add this line to define the input state
 
   const [message, setMessage] = useState("");
 
   const sendMessage = async () => {
-    setMessages((messages=>[...messages, {role: "user", content: input}]));
+    setMessages((messages)=>[
+      ...messages,
+      {role:'user', content: message},
+      {role:'assistant', content: ''}
+    ])
+    setMessage('');
     try {
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify([...messages,{ role: "user", content: input}]),
+        body: JSON.stringify([...messages,{ role: "user", content: message }]),
       }).then(async (res)=>{
         //create a readable stream
         const reader =res.body.getReader();
@@ -29,28 +34,29 @@ export default function Home() {
         const decoder = new TextDecoder()
         let result = "";
         //recursive function that reads the stream
-        // let initialBotMessage = messages[0]
-       
-        // let userMessage = {role: "user", content: input}
         return reader.read().then(function processText({done, value}){
           if(done){
             //ending conditon to return final string
             return result
           }
           //decode the value but have condition in case value is null or undefined (data gaps)
-          const text_stream =decoder.decode(value || new Uint8Array, {stream: true})
-          let lastMessage = messages[messages.length - 1]
-          let otherMessages = messages.slice(0, messages.length-1)
-          console.log('last message', lastMessage)
-          console.log('other messages',otherMessages)
-          
+          const newMessageStream =decoder.decode(value || new Uint8Array, {stream: true})
+        
           setMessages((messages)=>{
+            let lastMessage =  messages[messages.length - 1]
+            // let lastUserMessage =lastMessage.role === "user" ? lastMessage : null
+            // let lastPromptedBotMessage = lastMessage.role === "assistant"  && messages.length>1 ? lastMessage : null
+            console.log('last message:', lastMessage)
+            //if user has prompted we want all messages besides the last. If  not then just provide the only existing message (the intro bot message)
+            let othermessages = messages.slice(0, messages.length - 1)
+            
+            //this is only coming after user messages
             return [
-              ...otherMessages,
-              {...lastMessage, content: lastMessage + text_stream}
+              ...othermessages,
+              //if last user message is not null (meaning user has actualy prompted)
+             {...lastMessage, content: lastMessage.content + newMessageStream}
             ]
           })
-        
           return reader.read().then(processText)
         })
       })
@@ -61,6 +67,9 @@ export default function Home() {
   }
 
 
+  useEffect(()=>{
+    console.log(messages);
+  },[messages])
   
   return (
     <Box
@@ -103,8 +112,8 @@ export default function Home() {
   border-radius: 4px;
 } */}
         <TextField
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message..."
         />
           
