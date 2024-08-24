@@ -40,21 +40,21 @@ export default function Home() {
         
           setMessages((messages)=>{
             let lastMessage =  messages[messages.length - 1]
-            let lastUserMessage =lastMessage.role === "user" ? lastMessage : null
-            let lastPromptedBotMessage = lastMessage.role === "assistant"  && messages.length>1 ? lastMessage : null
+            // let lastUserMessage =lastMessage.role === "user" ? lastMessage : null
+            // let lastPromptedBotMessage = lastMessage.role === "assistant"  && messages.length>1 ? lastMessage : null
             console.log('last message:', lastMessage)
             //if user has prompted we want all messages besides the last. If  not then just provide the only existing message (the intro bot message)
-            let othermessages = lastUserMessage ? messages.slice(0, messages.length - 1) : messages
+            let othermessages = messages.slice(0, messages.length - 1)
             
             return [
               ...othermessages,
               //if last user message is not null (meaning user has actualy prompted)
-              ...(lastUserMessage ? [lastUserMessage] : []),
-              //if we are receving response append stream to it
-              (lastPromptedBotMessage ? {
-                ...lastPromptedBotMessage,
-                content: lastPromptedBotMessage.content + newMessageStream
-              } : {})
+              lastMessage.role === "user" ?(
+                lastMessage
+              )  : 
+              {...lastMessage,
+                role: "assistant", content: newMessageStream
+              }
             ]
           })
           return reader.read().then(processText)
