@@ -20,6 +20,16 @@ const Message = ({content,role}) => {
     //   }
     <Box  
     sx ={{
+        
+        display: "flex",
+        justifyContent: role === "assistant" ? "flex-start" : "flex-end"
+    }}
+    >
+        
+        
+    <Box
+      sx={{
+        textAlign: role === "assistant" ? "left" : "right", // Align text based on role
         backgroundColor: role === "assistant"  ? "primary.main" : "secondary.main",
         // color: message.role === "assistant" ? "white" : "black",
         padding: "1rem",
@@ -27,20 +37,10 @@ const Message = ({content,role}) => {
         marginBottom: "1rem",
         width: "fit-content",
         maxWidth: "80%",
-        display: "flex",
-        justifyContent: role === "assistant" ? "flex-start" : "flex-end"
-    }}
-    >
-        
-        
-    <Typography
-      sx={{
-        textAlign: role === "assistant" ? "left" : "right", // Align text based on role
-        color: role === "assistant" ? "white" : "black", // Adjust text color for readability
       }}
     >
       {content}
-    </Typography>
+    </Box>
             
         </Box>
   )
