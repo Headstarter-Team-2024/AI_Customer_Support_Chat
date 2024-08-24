@@ -74,7 +74,6 @@ const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
                 const content = chunk.choices[0]?.delta?.content
                 if(content){
                     const text = encoder.encode(content)
-                    console.log(text)
                     controller.enqueue(text)
                 }
             }
