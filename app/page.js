@@ -89,11 +89,11 @@ export default function Home() {
           margin: 0,
           padding: 20,
         }}
-      // >
-      //   {messages.map((message, index) => (
-      //     <Message key={index} content = {message.content} role = {message.role}/>
+      >
+        {messages.map((message, index) => (
+          <Message key={index} content = {message.content} role = {message.role}/>
 
-      //   ))}
+        ))}
       </Box>
   
       <Box 
