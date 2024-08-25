@@ -84,6 +84,29 @@ export default function Home() {
         background: "linear-gradient(135deg, #1b2735 0%, #090a0f 100%)",
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          padding: "1rem",  // Add padding to keep it away from edges
+        }}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            padding: "10px 20px",
+            fontSize: 16,
+            backgroundColor: "#007bff",
+            "&:hover": {
+              backgroundColor: "#0056b3",
+            }
+          }}
+          href="/scrape_page"
+        >
+          Add your Professor 
+        </Button>
+      </Box>
       {/* Main container: Holds the entire chat interface */}
     <Box
       sx={{
