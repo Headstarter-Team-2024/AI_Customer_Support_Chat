@@ -1,9 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
-import styles from "./page.module.css";
-import RenderResult from "next/dist/server/render-result";
 import { Box, Button, TextField } from "@mui/material";
+import RenderResult from "next/dist/server/render-result";
+import { useEffect, useState } from "react";
 import Message from "./components/Message";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [messages, setMessages] = useState([{
@@ -41,7 +41,7 @@ export default function Home() {
           }
           //decode the value but have condition in case value is null or undefined (data gaps)
           const newMessageStream =decoder.decode(value || new Uint8Array, {stream: true})
-        
+
           setMessages((messages)=>{
             let lastMessage =  messages[messages.length - 1]
             // let lastUserMessage =lastMessage.role === "user" ? lastMessage : null
@@ -49,7 +49,7 @@ export default function Home() {
             console.log('last message:', lastMessage)
             //if user has prompted we want all messages besides the last. If  not then just provide the only existing message (the intro bot message)
             let othermessages = messages.slice(0, messages.length - 1)
-            
+
             //this is only coming after user messages
             return [
               ...othermessages,
@@ -70,38 +70,68 @@ export default function Home() {
   useEffect(()=>{
     console.log(messages);
   },[messages])
-  
+
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "6rem",
-        minHeight: "100vh",
+        height: "100vh",
+        padding: { xs: "1rem", md: "2rem" },  // Responsive padding
+        boxSizing: "border-box", // Ensure padding is included in the height
+        background: "linear-gradient(135deg, #1b2735 0%, #090a0f 100%)",
       }}
     >
+      {/* Main container: Holds the entire chat interface */}
+    <Box
+      sx={{
+        flexGrow: 1,
+        display: "flex",
+        flexDirection: "column",
+        overflow: "auto",
+        mb: 2,
+        borderRadius: "12px",
+        width: { xs: '100%', sm: '80%', md: 700 }, // Responsive width
+        margin: "0 auto",
+        pb: 1,
+        backgroundColor: "rgba(0, 0, 0, 0.8)",
+        boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+        backdropFilter: "blur(4px)",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+      }}
+    >
+
+      {/* Chat messages container: Displays all messages */}
       <Box
         sx={{
+          flexGrow: 1,
+          display: "flex",
+          flexDirection: 'column',
           width: '100%',
           maxWidth: 600,
-          margin: 0,
-          padding: 20,
+          margin: "0 auto",
+          p: 2,
+          overflowY: "auto",
         }}
       >
+
         {messages.map((message, index) => (
           <Message key={index} content = {message.content} role = {message.role}/>
 
         ))}
+
       </Box>
-  
-      <Box 
+      </Box>
+{/* Input container: Holds the text input field and send button */}
+      <Box
       sx={{
         width: '100%',
         maxWidth: 600,
-        margin: 20,
-        disiplay: 'flex'
+        margin: "0 auto",
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
+        pt: 2,
       }}
       >
         {/* .input {
@@ -115,8 +145,27 @@ export default function Home() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message..."
+
+          variant="outlined"
+          sx={{
+            flexGrow: 1,
+          "& .MuiOutlinedInput-root": {
+            borderRadius: "12px",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            "&:hover": {
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+            },
+
+      "& input": {
+        color: "white", // Set the text color to white
+      },
+      "& .MuiInputBase-input::placeholder": {
+        color: "rgba(255, 255, 255, 0.9)", // Placeholder text color
+      },
+    },
+        }}
         />
-          
+
           {/* sendButton {
   padding: 10px 20px;
   font-size: 16px;
@@ -132,19 +181,21 @@ export default function Home() {
   background-color: #0056b3;
 } */}
 
-        <Button 
+        <Button
         sx={{
-          padding: "10px 20px",
-          fontSize: 16,
           backgroundColor: "#007bff",
-          color: "white",
-          border: "none",
-          borderRadius: 4,
-          marginLeft: 10,
-          cursor: "pointer",
-          "&:hover": {
-            backgroundColor: "#0056b3",
-          }
+      color: "white",
+      borderRadius: "12px",
+      padding: { xs: "8px 16px", md: "10px 20px" },  // Responsive padding
+      textTransform: "none",
+      fontWeight: "bold",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+      transition: "all 0.3s ease",
+      minWidth: '80px',
+      "&:hover": {
+        backgroundColor: "#0056b3",
+        boxShadow: "0 6px 8px rgba(0, 0, 0, 0.15)",
+      },
         }}
         onClick={sendMessage} >Send</Button>
       </Box>
