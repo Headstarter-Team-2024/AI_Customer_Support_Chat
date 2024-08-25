@@ -79,15 +79,48 @@ export default function Home() {
         justifyContent: "space-between",
         alignItems: "center",
         padding: "6rem",
-        minHeight: "100vh",
+        // color:'white',
+        minHeight: "1vh",
+        
       }}
     >
+<Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          padding: "1rem",  // Add padding to keep it away from edges
+        }}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            padding: "10px 20px",
+            fontSize: 16,
+            backgroundColor: "#007bff",
+            "&:hover": {
+              backgroundColor: "#0056b3",
+            }
+          }}
+          href="/scrape_page"
+        >
+          Add your Professor 
+        </Button>
+      </Box>
       <Box
         sx={{
           width: '100%',
-          maxWidth: 600,
+          maxWidth: 400,
           margin: 0,
+          height: '20vh',
+          overflowY: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
           padding: 20,
+          border: '2px solid #ccc',
+          borderRadius: '8px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+
         }}
       >
         {messages.map((message, index) => (
@@ -100,8 +133,10 @@ export default function Home() {
       sx={{
         width: '100%',
         maxWidth: 600,
-        margin: 20,
-        disiplay: 'flex'
+
+        margin: 5,
+        display: 'flex' 
+
       }}
       >
         {/* .input {
@@ -115,6 +150,11 @@ export default function Home() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message..."
+
+          sx={{
+            width: '50vw',
+            bgcolor: 'white',
+          }}
         />
           
           {/* sendButton {
@@ -147,6 +187,7 @@ export default function Home() {
           }
         }}
         onClick={sendMessage} >Send</Button>
+
       </Box>
     </Box>
   );
