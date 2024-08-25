@@ -13,7 +13,6 @@ Users might ask questions like:
 
 
 
-
 For questions about top professors, return the requested number based on overall ratings.
 For questions about a specific professor, summarize their overall rating, the courses they teach, and relevant student feedback.
 For course-specific questions, highlight ratings and detailed reviews associated with that course.

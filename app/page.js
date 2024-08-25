@@ -14,6 +14,8 @@ export default function Home() {
   const [message, setMessage] = useState("");
 
   const sendMessage = async () => {
+    //format message
+    // setMessage(message.replace(/---/g, '\n'))
     setMessages((messages)=>[
       ...messages,
       {role:'user', content: message},
