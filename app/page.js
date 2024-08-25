@@ -102,6 +102,7 @@ export default function Home() {
     >
 
       {/* Chat messages container: Displays all messages */}
+
       <Box
         sx={{
           flexGrow: 1,
@@ -112,6 +113,7 @@ export default function Home() {
           margin: "0 auto",
           p: 2,
           overflowY: "auto",
+
         }}
       >
 
@@ -132,6 +134,7 @@ export default function Home() {
         alignItems: 'center',
         gap: 2,
         pt: 2,
+
       }}
       >
         {/* .input {
@@ -198,6 +201,7 @@ export default function Home() {
       },
         }}
         onClick={sendMessage} >Send</Button>
+
       </Box>
     </Box>
   );

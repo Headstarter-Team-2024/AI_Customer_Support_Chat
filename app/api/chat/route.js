@@ -1,13 +1,11 @@
 import OpenAI from "openai"
-import { SystemPrompt } from "@/app/SystemPrompt"
+import { SystemPrompt } from "../../SystemPrompt"
 import { NextResponse } from "next/server"
 import { Pinecone } from '@pinecone-database/pinecone'
 
 const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
-
-
 
 
 
