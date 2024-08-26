@@ -1,24 +1,43 @@
 import { NextResponse } from "next/server";
-import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer-core";
 import { Pinecone } from '@pinecone-database/pinecone'
 import OpenAI from "openai";
-import chromium from 'chrome-aws-lambda';
+// import chromium from '@sparticuz/chromium'
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
 const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
+//when deployed to vercel puppeteer by itself won't work, so we need to use puppeteer-core and chromium to get it to work
+export const getPuppeteer = async () => {
+  let puppeteer;
+  let chrome = null;
+    //if not deployed aws lambda function will be undefined and we can use puppeteer directly
+  if (process.env.NODE_ENV==='production') {
+    chrome = (await import('chrome-aws-lambda')).default;
+    puppeteer = (await import('puppeteer-core')).default;
+  } else {
+    puppeteer = (await import('puppeteer')).default;
+  }
 
-
+  return { puppeteer, chrome };
+};
 
 export async function POST(req) {
+     const { puppeteer, chrome } = await getPuppeteer();
     const url  = await req.text()
+    let browser;
+    //if using deployment
+   
   try{
-    const browser = await chromium.puppeteer.launch({
-      args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath,
-      headless: true,
-      ignoreHTTPSErrors: true,
-    })
+    if (chrome) {
+      browser = await puppeteer.launch({
+        args: [...chrome.args],
+        executablePath: await chrome.executablePath,
+        headless: chrome.headless,
+      });
+    } else {
+      browser = await puppeteer.launch({headless: true});
+    }
+   
     const page = await browser.newPage();
     await page.goto(url);
     await page.waitForSelector('.NameTitle__Name-dowf0z-0');
