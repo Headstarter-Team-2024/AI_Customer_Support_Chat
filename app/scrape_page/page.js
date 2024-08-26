@@ -51,7 +51,6 @@ export default function ScrapePage() {
       console.log(result);
 
     } catch (error) {
-      console.log('not related to validation')
       throwError()
       // setStatus(`Error: ${error.message}`);
     } finally {

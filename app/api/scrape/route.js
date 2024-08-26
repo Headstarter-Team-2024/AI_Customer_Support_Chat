@@ -17,7 +17,7 @@ export async function POST(req) {
     console.log('browser launched')
     const page = await browser.newPage();
     await page.goto(url);
-    // await page.waitForSelector('.Comments__StyledComments-dzzyvm-0');
+    await page.waitForSelector('.NameTitle__Name-dowf0z-0');
 
     const data = await page.evaluate(()=>{
         const rating = document.querySelector('.RatingValue__Numerator-qw8sqy-2').textContent
