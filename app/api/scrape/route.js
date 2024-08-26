@@ -4,6 +4,7 @@ import { Pinecone } from '@pinecone-database/pinecone'
 import OpenAI from "openai";
 import { getPuppeteer } from "../../utils/GetPuppeteer";
 // import chromium from '@sparticuz/chromium'
+export const { puppeteer, chrome } = await getPuppeteer();
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
 const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
@@ -11,7 +12,8 @@ const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
 
 
 export async function POST(req) {
-     const { puppeteer, chrome } = await getPuppeteer();
+      
+     
     const url  = await req.text()
     let browser;
     //if using deployment

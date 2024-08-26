@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Box, Button, CircularProgress, TextField, Typography, Container, Stack } from "@mui/material";
 import Alert from '@mui/material/Alert';
 import SuccessIcon from '../icons/SuccessIcon'
-
+import { puppeteer } from "../api/scrape/route";
 export default function ScrapePage() {
   const [url, setUrl] = useState("");
   // const [status, setStatus] = useState("");
@@ -23,9 +23,7 @@ export default function ScrapePage() {
       },3000)
   }
   const handleScrape = async () => {
-    const {puppeteer, chrome} = await getPuppeteer();
     console.log(puppeteer)
-    console.log(chrome)
     if(!url.includes('professor')) return throwError()
     setLoading(true);
     try {
