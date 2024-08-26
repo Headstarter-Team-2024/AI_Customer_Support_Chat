@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import puppeteer from "puppeteer";
 import { Pinecone } from '@pinecone-database/pinecone'
 import OpenAI from "openai";
+import chromium from 'chrome-aws-lambda';
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
 const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
@@ -9,12 +10,15 @@ const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
 
 
 export async function POST(req) {
-   console.log(req)
     const url  = await req.text()
-    console.log(url)
   try{
-    const browser  = await puppeteer.launch({headless: true});
-    console.log('browser launched')
+    const browser = await chromium.puppeteer.launch({
+      args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: true,
+      ignoreHTTPSErrors: true,
+    })
     const page = await browser.newPage();
     await page.goto(url);
     await page.waitForSelector('.NameTitle__Name-dowf0z-0');
