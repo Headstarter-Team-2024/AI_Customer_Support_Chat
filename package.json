@@ -16,16 +16,16 @@
     "@langchain/openai": "^0.2.6",
     "@mui/material": "^5.16.7",
     "@pinecone-database/pinecone": "^3.0.0",
-    "chrome-aws-lambda": "^6",
+    "@sparticuz/chromium": "^110.0.1",
     "next": "^14.2.5",
     "openai": "^4.56.0",
-    "puppeteer-core": "^6",
+    "puppeteer-core": "^19.6.0",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
-    "puppeteer": "^6"
+    "puppeteer": "^19.6"
   }
 }

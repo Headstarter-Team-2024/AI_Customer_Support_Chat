@@ -1,13 +1,17 @@
+
 export const getPuppeteer = async () => {
     let puppeteer;
-    let chrome = null;
+    let chromium = null;
       //if not deployed aws lambda function will be undefined and we can use puppeteer directly
     if (process.env.NODE_ENV==='production') {
-      chrome = (await import('chrome-aws-lambda')).default;
+   
+      chromium = (await import('@sparticuz/chromium')).default;
+      chromium.setHeadlessMode = true;
+
       puppeteer = (await import('puppeteer-core')).default;
     } else {
       puppeteer = (await import('puppeteer')).default;
     }
   
-    return { puppeteer, chrome };
+    return { puppeteer, chromium };
   };

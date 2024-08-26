@@ -2,9 +2,13 @@ import { NextResponse } from "next/server";
 // import puppeteer from "puppeteer-core";
 import { Pinecone } from '@pinecone-database/pinecone'
 import OpenAI from "openai";
-import { getPuppeteer } from "../../utils/GetPuppeteer";
+// import { getPuppeteer } from "../../utils/GetPuppeteer";
+import chromium from '@sparticuz/chromium'
+import puppeteer from 'puppeteer'; // Full Puppeteer (for local development)
+import puppeteerCore from 'puppeteer-core'; // Puppeteer Core (for production)
+
+
 // import chromium from '@sparticuz/chromium'
-export const { puppeteer, chrome } = await getPuppeteer();
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
 const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
@@ -12,26 +16,33 @@ const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
 
 
 export async function POST(req) {
-      
-     
+    // const { puppeteer, chromium } = await getPuppeteer();
+    // console.log('puppeteer:',puppeteer)
+    // console.log('chromium:',chromium)
     const url  = await req.text()
+    console.log(url)
     let browser;
     //if using deployment
    
   try{
-    if (chrome) {
-      browser = await puppeteer.launch({
-        args: [...chrome.args],
-        defaultViewport: chrome.defaultViewport,
-        executablePath: await chrome.executablePath,
-        headless: true,
+    //if deployed to vercel
+    if (process.env.AWS_EXECUTION_ENV) {
+      console.log('pre browser launch')
+      const browser = await puppeteerCore.launch({
+        ignoreDefaultArgs: ['--disable-extensions'],
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
         ignoreHTTPSErrors: true,
       });
+
     } else {
       browser = await puppeteer.launch({headless: true});
     }
    
     const page = await browser.newPage();
+    console.log('browser launced')
     await page.goto(url);
     await page.waitForSelector('.NameTitle__Name-dowf0z-0');
 
@@ -110,6 +121,7 @@ export async function POST(req) {
     return NextResponse.json('Successfully added to pinecone',{status: 200})
   }
   catch(error){
+    console.log('error:',error.message)
     return NextResponse.json({error: error.message}, {status: 400})
   }
 }
