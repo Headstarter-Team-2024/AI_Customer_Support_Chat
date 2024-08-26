@@ -26,7 +26,7 @@ export async function POST(req) {
    
   try{
     //if deployed to vercel
-    if (process.env.AWS_EXECUTION_ENV) {
+    if (process.env.NODE_ENV === 'production') {
       console.log('pre browser launch')
       const browser = await puppeteerCore.launch({
         ignoreDefaultArgs: ['--disable-extensions'],
