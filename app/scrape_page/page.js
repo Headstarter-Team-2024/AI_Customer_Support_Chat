@@ -27,6 +27,7 @@ export default function ScrapePage() {
   const handleScrape = async () => {
     if(!url.includes('professor')) return throwError()
     setLoading(true);
+    console.log('url:',url)
     try {
       const response = await fetch("/api/scrape", {  // Adjust API endpoint as needed
         method: "POST",
@@ -35,6 +36,7 @@ export default function ScrapePage() {
         },
         body: url,
       });
+      console.log(response)
 
       if (!response.ok) {
         throw new Error("Failed to scrape the URL");
