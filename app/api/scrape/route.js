@@ -31,8 +31,10 @@ export async function POST(req) {
     if (chrome) {
       browser = await puppeteer.launch({
         args: [...chrome.args],
+        defaultViewport: chrome.defaultViewport,
         executablePath: await chrome.executablePath,
-        headless: chrome.headless,
+        headless: true,
+        ignoreHTTPSErrors: true,
       });
     } else {
       browser = await puppeteer.launch({headless: true});
