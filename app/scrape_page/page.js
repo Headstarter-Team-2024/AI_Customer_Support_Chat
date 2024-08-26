@@ -16,6 +16,7 @@ export default function ScrapePage() {
 
   const throwError = ()=>{
     console.log('throwing error')
+    console.log(url)
     setLoading(false)
       setUrl('')
       setError(true)
@@ -52,6 +53,7 @@ export default function ScrapePage() {
       console.log(result);
 
     } catch (error) {
+      
       throwError()
       // setStatus(`Error: ${error.message}`);
     } finally {
