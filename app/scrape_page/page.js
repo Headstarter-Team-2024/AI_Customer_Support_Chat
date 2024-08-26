@@ -23,6 +23,9 @@ export default function ScrapePage() {
       },3000)
   }
   const handleScrape = async () => {
+    const {puppeteer, chrome} = await getPuppeteer();
+    console.log(puppeteer)
+    console.log(chrome)
     if(!url.includes('professor')) return throwError()
     setLoading(true);
     try {
