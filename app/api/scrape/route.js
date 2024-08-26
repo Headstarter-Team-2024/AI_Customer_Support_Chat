@@ -9,9 +9,12 @@ const pinecone = new Pinecone({ apiKey: process.env.PINE_CONE_KEY });
 
 
 export async function POST(req) {
+   console.log(req)
     const url  = await req.text()
+    console.log(url)
   try{
     const browser  = await puppeteer.launch({headless: true});
+    console.log('browser launched')
     const page = await browser.newPage();
     await page.goto(url);
     // await page.waitForSelector('.Comments__StyledComments-dzzyvm-0');
