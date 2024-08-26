@@ -3,11 +3,16 @@ import { NextResponse } from "next/server";
 import { Pinecone } from '@pinecone-database/pinecone'
 import OpenAI from "openai";
 // import { getPuppeteer } from "../../utils/GetPuppeteer";
-import chromium from '@sparticuz/chromium'
-import puppeteer from 'puppeteer'; // Full Puppeteer (for local development)
-import puppeteerCore from 'puppeteer-core'; // Puppeteer Core (for production)
 
-
+let puppeteer;
+let chromium;
+if(process.env.NODE_ENV === 'production'){
+  puppeteer = await import('puppeteer-core')
+  chromium = await import('chrome-aws-lambda')
+}
+else{
+  puppeteer = await import('puppeteer')
+}
 // import chromium from '@sparticuz/chromium'
 
 const openai = new OpenAI({  apiKey: process.env.OPENAI_API_KEY});
@@ -27,17 +32,15 @@ export async function POST(req) {
   try{
     //if deployed to vercel
     if (process.env.NODE_ENV === 'production') {
-      console.log('pre browser launch')
-      const browser = await puppeteerCore.launch({
-        ignoreDefaultArgs: ['--disable-extensions'],
+      console.log('in production')
+      const browser = await puppeteer.launch({
+        executablePath:chromium.executablePath,
         args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        executablePath: await chromium.executablePath(),
-        headless: chromium.headless,
-        ignoreHTTPSErrors: true,
-      });
+        headless: false,
+      })
 
     } else {
+      console.log('in development')
       browser = await puppeteer.launch({headless: true});
     }
    
